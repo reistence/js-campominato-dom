@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  height: 70px;
+  width: 100%;
+}
+.header-container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.logo {
+  font-size: 2rem;
+}
+
+nav #play {
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #80fed4;
+}
+main {
+  background-color: #80fed4;
+  width: 100%;
+  height: calc(100vh - 140px);
+}
+.container {
+  margin: 0 auto;
+  padding: 1em 0;
+  width: 70%;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.square {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active {
+  background-color: dodgerblue;
+}
+
+.easy {
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+}
+.medium {
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}
+.difficult {
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+}
+
+footer {
+  height: 70px;
+  width: 100%;
+}
+.footer-container {
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
