@@ -12,13 +12,17 @@
 
 const playBtn = document.getElementById("play");
 const row = document.querySelector(".row");
+const scoreMessage = document.getElementById("score-message");
 let numbersArray;
 let bombsArray = [];
 let thisSquare;
 let score = 0;
+let message = "";
 // play btn
 playBtn.addEventListener("click", function () {
   row.innerHTML = "";
+  message = "";
+  scoreMessage.classList.remove("visible");
   //grab option value from DOM
   let difficulty = document.getElementById("difficulty").value;
   console.log(difficulty, typeof difficulty);
@@ -114,22 +118,27 @@ function generateRandomOrderArray(arrayLength) {
 /**
  * Description returns the innerhtml content (as a number) of a given element
  * and changes its background color to lightblue in the DOM
- * @param (array)
+ *
  * @returns {number}
  */
-function squareClicked(event) {
+function squareClicked() {
   const clickedNr = parseInt(this.innerHTML);
   console.log(clickedNr);
-  let message = "";
   if (bombsArray.includes(clickedNr)) {
     this.classList.add("bomb");
+    let square = document.getElementsByClassName("square");
+    console.log(square);
+    for (let i = 0; i < square.length; i++) {
+      if (bombsArray.includes(parseInt(square[i].innerHTML))) {
+        square[i].classList.add("bomb");
+      }
+    }
     // console.log(thisSquare);
-
-    thisSquare.removeEventListener("click", squareClicked);
     // thisSquare.classList.add("bomb");
     message = `Game Over! You lost, Your score is ${score}`;
+    scoreMessage.innerHTML = message;
+    scoreMessage.classList.add("visible");
     console.log(message);
-    return;
   } else {
     this.classList.add("active");
     score++;
@@ -137,10 +146,16 @@ function squareClicked(event) {
     if (score === numbersArray.length - bombsArray.length) {
       message = `Congratulations! You won, Your score is ${score}`;
       console.log(message);
+      scoreMessage.innerHTML = message;
+      scoreMessage.classList.add("visible");
     }
   }
 }
 
-// function explodeBombs (array, bombsArray){
-
+// function explodeBombs() {
+//   for (i = 0; i < bombsArray.length; i++) {
+//     const thisBomb = bombsArray[i];
+//     console.log(thisBomb);
+//     return thisBomb;
+//   }
 // }
