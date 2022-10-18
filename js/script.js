@@ -127,14 +127,16 @@ function squareClicked() {
   if (bombsArray.includes(clickedNr)) {
     this.classList.add("bomb");
     let square = document.getElementsByClassName("square");
-    console.log(square);
+
+    //check other bombs
     for (let i = 0; i < square.length; i++) {
+      // if square.innerhtml is in bombsArray, all these elements get the class bomb
       if (bombsArray.includes(parseInt(square[i].innerHTML))) {
         square[i].classList.add("bomb");
       }
     }
-    // console.log(thisSquare);
-    // thisSquare.classList.add("bomb");
+
+    // show the score and the outcome of match
     message = `Game Over! You lost, Your score is ${score}`;
     scoreMessage.innerHTML = message;
     scoreMessage.classList.add("visible");
@@ -143,7 +145,9 @@ function squareClicked() {
     this.classList.add("active");
     score++;
     console.log(score);
+    // if user gets correctly all the attempts
     if (score === numbersArray.length - bombsArray.length) {
+      // show the score(max score possible) and the outcome of match
       message = `Congratulations! You won, Your score is ${score}`;
       console.log(message);
       scoreMessage.innerHTML = message;
