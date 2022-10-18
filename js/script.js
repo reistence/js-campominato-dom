@@ -155,11 +155,3 @@ function squareClicked() {
     }
   }
 }
-
-// function explodeBombs() {
-//   for (i = 0; i < bombsArray.length; i++) {
-//     const thisBomb = bombsArray[i];
-//     console.log(thisBomb);
-//     return thisBomb;
-//   }
-// }
