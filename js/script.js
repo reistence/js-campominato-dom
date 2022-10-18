@@ -123,12 +123,3 @@ function SquareClickMessage() {
     this.classList.add("active");
   }
 }
-
-// function createBombsArray(max, array){
-//       const bombs = [];
-//       while ( )
-//       for (let i = 0; i <= array.length; i++){
-//         const bomb = bombs[i];
-
-//       }
-// }
