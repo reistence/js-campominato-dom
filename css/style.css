@@ -63,7 +63,9 @@ main {
 .active {
   background-color: dodgerblue;
 }
-
+.bomb {
+  background-color: red;
+}
 .easy {
   width: calc(100% / 10);
   height: calc(100% / 10);
