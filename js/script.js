@@ -12,7 +12,10 @@
 
 const playBtn = document.getElementById("play");
 const row = document.querySelector(".row");
-
+let numbersArray;
+let bombsArray = [];
+let thisSquare;
+let score = 0;
 // play btn
 playBtn.addEventListener("click", function () {
   row.innerHTML = "";
@@ -30,19 +33,19 @@ playBtn.addEventListener("click", function () {
   }
 
   // generate an array of given number size (1-100/1-81/1-49)
-  let numbersArray;
+
   numbersArray = generateOrderedArray(squaresNr);
 
   // genrate array of 16 bombs
-  const bombsArray = generateRandomOrderArray(squaresNr);
+  bombsArray = generateRandomOrderArray(squaresNr);
   console.log(bombsArray);
 
   // create a square element for each iteration
   for (let i = 0; i < numbersArray.length; i++) {
     const thisNr = numbersArray[i];
-    const thisSquare = createSquare(thisNr);
+    thisSquare = createSquare(thisNr);
     // add eventlistener to each square
-    thisSquare.addEventListener("click", SquareClickMessage);
+    thisSquare.addEventListener("click", squareClicked);
     // put the squares into .row
     row.append(thisSquare);
     // display modes classes
@@ -114,12 +117,30 @@ function generateRandomOrderArray(arrayLength) {
  * @param (array)
  * @returns {number}
  */
-function SquareClickMessage() {
+function squareClicked(event) {
   const clickedNr = parseInt(this.innerHTML);
   console.log(clickedNr);
+  let message = "";
   if (bombsArray.includes(clickedNr)) {
     this.classList.add("bomb");
+    // console.log(thisSquare);
+
+    thisSquare.removeEventListener("click", squareClicked);
+    // thisSquare.classList.add("bomb");
+    message = `Game Over! You lost, Your score is ${score}`;
+    console.log(message);
+    return;
   } else {
     this.classList.add("active");
+    score++;
+    console.log(score);
+    if (score === numbersArray.length - bombsArray.length) {
+      message = `Congratulations! You won, Your score is ${score}`;
+      console.log(message);
+    }
   }
 }
+
+// function explodeBombs (array, bombsArray){
+
+// }
