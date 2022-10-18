@@ -7,11 +7,16 @@
 html {
   font-size: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+a {
+  color: inherit;
 }
 
 header {
   height: 70px;
   width: 100%;
+  background-color: black;
 }
 .header-container {
   width: 95%;
@@ -22,7 +27,8 @@ header {
   height: 100%;
 }
 .logo {
-  font-size: 2rem;
+  font-size: 2.3rem;
+  color: #3d403f;
 }
 
 nav #play {
@@ -30,10 +36,22 @@ nav #play {
   font-size: 1.2rem;
   border-radius: 10px;
   border: none;
-  background-color: #80fed4;
+  color: white;
+  background-color: rgb(175, 26, 26);
+}
+
+#difficulty {
+  background-color: black;
+  color: rgb(175, 26, 26);
+  padding: 0.5em 1em;
+  font-weight: 100;
+  font-size: 1rem;
+  border-radius: 10px;
 }
 main {
-  background-color: #80fed4;
+  background-image: url("../img/explosion.jpg");
+  background-size: cover;
+  background-position: center;
   width: 100%;
   height: calc(100vh - 140px);
 }
@@ -60,12 +78,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #3d403f;
 }
 .active {
   background-color: dodgerblue;
 }
 .bomb {
-  background-color: red;
+  background-color: rgb(175, 26, 26);
 }
 .easy {
   width: calc(100% / 10);
@@ -82,13 +101,16 @@ main {
 #score-message {
   background-color: white;
   position: absolute;
+  color: black;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
   width: 80%;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  padding: 0.5em 0.5em;
+  border-radius: 10px;
 }
 .visible {
   display: block !important;
@@ -97,6 +119,8 @@ main {
 footer {
   height: 70px;
   width: 100%;
+  background-color: black;
+  color: #3d403f;
 }
 .footer-container {
   width: 90%;
