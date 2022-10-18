@@ -16,10 +16,15 @@ const scoreMessage = document.getElementById("score-message");
 let numbersArray;
 let bombsArray = [];
 let thisSquare;
+
 let score = 0;
 let message = "";
+
+let explosion = false;
+
 // play btn
 playBtn.addEventListener("click", function () {
+  explosion = false;
   row.innerHTML = "";
   message = "";
   scoreMessage.classList.remove("visible");
@@ -64,6 +69,7 @@ playBtn.addEventListener("click", function () {
 });
 
 // FUNCTIONs
+
 /**
  * Description generate an array of ascending numbers from 1 to a given lenght
  * @param {number} arrayLength
@@ -122,15 +128,18 @@ function generateRandomOrderArray(arrayLength) {
  * @returns {number}
  */
 function squareClicked() {
+  if (explosion) {
+    return;
+  }
   const clickedNr = parseInt(this.innerHTML);
   console.log(clickedNr);
   if (bombsArray.includes(clickedNr)) {
     this.classList.add("bomb");
     let square = document.getElementsByClassName("square");
-
-    //check other bombs
+    explosion = true;
+    //check and expose other bombs
     for (let i = 0; i < square.length; i++) {
-      // if square.innerhtml is in bombsArray, all these elements get the class bomb
+      // if square.innerhtml is also in bombsArray, all these elements get the class bomb
       if (bombsArray.includes(parseInt(square[i].innerHTML))) {
         square[i].classList.add("bomb");
       }
