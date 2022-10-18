@@ -142,6 +142,7 @@ function squareClicked() {
       // if square.innerhtml is also in bombsArray, all these elements get the class bomb
       if (bombsArray.includes(parseInt(square[i].innerHTML))) {
         square[i].classList.add("bomb");
+        square[i].innerHTML = `<i class="fa-solid fa-bomb"></i>`;
       }
     }
 
